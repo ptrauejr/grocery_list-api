@@ -27,4 +27,4 @@ production:
   <<: *default
   database: dms_grocery_list_production
   username: dms_grocery_list
-  password: <%= ENF['DMS_GROCERY_LIST_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DMS_GROCERY_LIST_DATABASE_PASSWORD'] %>
