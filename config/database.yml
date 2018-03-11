@@ -5,21 +5,26 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
+  encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
+  username: dms_grocery
+  password: Creter3#
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: dms_grocery_list_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: dms_grocery_list_test
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: dms_grocery_list_production
+  username: dms_grocery_list
+  password: <%= ENF['DMS_GROCERY_LIST_DATABASE_PASSWORD'] %>
